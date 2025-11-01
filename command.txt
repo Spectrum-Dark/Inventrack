@@ -1,0 +1,15 @@
+1-#Para Obtener Cambios es:
+
+git pull
+
+2-#para agregar todos los archivos al baul local es:
+
+git add .
+
+3-#para crear el commit y subirlo al githud ("Mensaje es los cambios que realizastes")
+
+git commit -m 'Archivo 1.1'
+
+git push origin master
+
+4-#visualizar los cambios en la nube
