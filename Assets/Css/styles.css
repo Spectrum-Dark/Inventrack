@@ -1,0 +1,285 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f5f7fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* --- Contenedores --- */
+.login-container,
+.register-container {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 380px;
+  overflow: hidden;
+  display: none;
+}
+
+.login-container.active,
+.register-container.active {
+  display: block;
+}
+
+/* --- Cabecera --- */
+.login-header,
+.register-header {
+  background-color: #1e56a0;
+  color: white;
+  text-align: center;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.logo-placeholder {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: transparent;
+  display: inline-block;
+  background-image: url("../Ico/logo.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+}
+
+h1 {
+  font-size: 24px;
+  margin: 0;
+  font-weight: 600;
+}
+
+.login-body,
+.register-body {
+  padding: 30px 25px;
+}
+
+.login-body h2,
+.register-body h2 {
+  text-align: center;
+  color: #222;
+  margin-bottom: 25px;
+  font-size: 22px;
+}
+
+/* --- Inputs Login --- */
+.input-group {
+  margin-bottom: 18px;
+  position: relative;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 40px 12px 40px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+  border-color: #1e56a0;
+}
+
+.input-group i {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+  font-size: 18px;
+}
+
+/* --- Botones --- */
+.btn-ingresar {
+  background-color: #1e56a0;
+  color: white;
+  border: none;
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-ingresar:hover {
+  background-color: #163d75;
+}
+
+.btn-registrarse {
+  background-color: white;
+  color: #1e56a0;
+  border: 1px solid #1e56a0;
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
+
+.btn-registrarse:hover {
+  background-color: #f1f5ff;
+}
+
+.forgot,
+.volver {
+  text-align: center;
+  margin-top: 18px;
+}
+
+.forgot a,
+.volver a {
+  color: #1e56a0;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.forgot a:hover,
+.volver a:hover {
+  text-decoration: underline;
+}
+
+.error {
+  color: #c0392b;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* --- Registro --- */
+.social-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.btn-google,
+.btn-phone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  border: none;
+  transition: background 0.3s;
+  -webkit-transition: background 0.3s;
+  -moz-transition: background 0.3s;
+  -ms-transition: background 0.3s;
+  -o-transition: background 0.3s;
+}
+
+.btn-google {
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+.btn-google:hover {
+  background-color: #f4f4f4;
+}
+
+.btn-google img,
+.btn-facebook img {
+  width: 22px;
+  height: 22px;
+}
+
+.btn-facebook {
+  background-color: #1877f2;
+  color: white;
+}
+.btn-facebook:hover {
+  background-color: #125ecf;
+}
+
+.btn-phone {
+  background-color: #1e56a0;
+  color: white;
+}
+.btn-phone:hover {
+  background-color: #163d75;
+}
+
+.divider {
+  position: relative;
+  text-align: center;
+  color: #777;
+  font-size: 14px;
+  margin: 20px 0;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 20%;
+  height: 1px;
+  background-color: #ccc;
+}
+
+.divider::before {
+  left: 0;
+}
+
+.divider::after {
+  right: 0;
+}
+
+.divider span {
+  background-color: #fff; /* color de fondo */
+  padding: 0 10px; /* espacio a los lados del texto */
+  position: relative;
+  z-index: 1; /* texto por encima de las líneas */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  border-color: #1e56a0;
+}
+
+.btn-registrar {
+  background-color: #1e56a0;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-registrar:hover {
+  background-color: #163d75;
+}

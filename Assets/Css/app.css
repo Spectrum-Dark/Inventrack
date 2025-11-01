@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  background-color: #f9fafb;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  background-color: #0f1014;
+  padding: 25px 15px;
+  border-right: 1px solid #e5e7eb;
+}
+
+.sidebar h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.title_and_logo {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  background-image: url("../Ico/logo.png");
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: 50px;
+  text-indent: 0.5em;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.menu {
+  list-style: none;
+}
+
+.menu li {
+  margin-bottom: 15px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #ced4da;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.menu a:hover {
+  background-color: #3d8bfd;
+  color: white;
+}
+
+.menu i {
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+/* Panel de vistas de las paginas */
+.main {
+  /* Calculamos la pantalla adaptandola */
+  width: calc(100% - 240px);
+  height: auto;
+  overflow-y: auto;
+}
