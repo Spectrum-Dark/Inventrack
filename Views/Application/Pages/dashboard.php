@@ -1,3 +1,5 @@
 <div class="container">
-    <h2>DASHBOARD</h2>
+    <div>
+        vamos al baño
+    </div>
 </div>
