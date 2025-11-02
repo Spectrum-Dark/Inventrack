@@ -25,15 +25,3 @@ function handleCredentialResponse(response) {
   console.log("Token de Google:", response.credential);
   alert("Inicio de sesión con Google exitoso. Token recibido en consola.");
 }
-
-function registrarFacebook() {
-  alert(
-    "Aquí se integrará el inicio de sesión con Facebook (por ejemplo con Facebook Login API)."
-  );
-}
-
-function registrarTelefono() {
-  alert(
-    "Aquí se integrará el registro con número telefónico (por ejemplo, usando verificación por SMS)."
-  );
-}

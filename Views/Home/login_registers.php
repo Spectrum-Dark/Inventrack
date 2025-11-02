@@ -28,7 +28,7 @@
             <form method="POST" action="">
                 <div class="input-group">
                     <i class="fas fa-user"></i>
-                    <input type="text" name="usuario" placeholder="Usuario / Correo / ID de empleado" required>
+                    <input type="text" name="usuario" placeholder="Usuario / Correo electronico" required>
                 </div>
 
                 <div class="input-group">
@@ -48,11 +48,6 @@
 
     <!-- REGISTRO -->
     <div class="register-container" id="registerScreen">
-        <div class="register-header">
-            <div class="logo-placeholder"></div>
-            <h1>Inventrack</h1>
-        </div>
-
         <div class="register-body">
             <h2>Crear cuenta</h2>
 
@@ -60,10 +55,6 @@
                 <button id="btnGoogle" class="btn-google">
                     <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google logo">
                     Registrarse con Google
-                </button>
-
-                <button class="btn-phone" onclick="registrarTelefono()">
-                    <i class="fas fa-phone"></i> Registrarse con número de teléfono
                 </button>
             </div>
 
@@ -73,6 +64,7 @@
                 <input type="text" name="nombre" placeholder="Nombre completo" required>
                 <input type="email" name="correo" placeholder="Correo electrónico" required>
                 <input type="password" name="contrasena" placeholder="Contraseña" required>
+                <input type="password" name="confirmarpass" placeholder="Confirmar contraseña" required>
                 <button type="submit" class="btn-registrar">Registrar</button>
             </form>
 

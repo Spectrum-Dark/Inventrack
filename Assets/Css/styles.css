@@ -30,8 +30,7 @@ body {
 }
 
 /* --- Cabecera --- */
-.login-header,
-.register-header {
+.login-header {
   background-color: #1e56a0;
   color: white;
   text-align: center;
@@ -169,8 +168,7 @@ h1 {
   margin-bottom: 25px;
 }
 
-.btn-google,
-.btn-phone {
+.btn-google {
   display: flex;
   align-items: center;
   justify-content: center;
