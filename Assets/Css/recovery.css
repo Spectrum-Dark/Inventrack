@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif;}
+body {background-color:#f9fafb; display:flex; align-items:center; justify-content:center; height:100vh;}
+.container {display:flex; justify-content:center; align-items:center;}
+.card {background-color:#fff; width:360px; border-radius:20px; box-shadow:0 5px 25px rgba(0,0,0,0.1); text-align:center; overflow:hidden;}
+.header {background-color:#1E40AF; padding:30px 0 20px; color:#fff; border-top-left-radius:20px; border-top-right-radius:20px;}
+.card h1 {font-size:1.5em; font-weight:600;}
+.card h2 {margin:25px 0 15px; font-size:1.3em; color:#111;}
+.input-group {position:relative; width:80%; margin:0 auto 15px;}
+.input-group i {position:absolute; top:50%; left:10px; transform:translateY(-50%); color:#333;}
+.input-group input {width:100%; padding:12px 40px; border:1px solid #d1d5db; border-radius:8px; font-size:14px;}
+.btn {background-color:#1E40AF; color:#fff; font-weight:500; border:none; border-radius:8px; padding:12px 0; width:80%; margin-top:10px; cursor:pointer; transition:0.3s;}
+.btn:hover {background-color:#173999;}
+.next {display:block; margin-top:20px; color:#1E40AF; font-weight:600; text-decoration:none; cursor:pointer;}
+.back {display:inline-block; margin-top:10px; color:#000; font-size:0.9em; text-decoration:none;}
+.back i {margin-right:5px;}
+.message {margin-top:15px; font-size:0.9em; color:#111; padding:8px;}
+/* Ocultar formularios por defecto */
+.form-step {display:none;}
+.form-step.active {display:block;}
