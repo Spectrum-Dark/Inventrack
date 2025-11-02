@@ -4,11 +4,15 @@ class Controller
 {
     public static function Nucleo()
     {
-        /* Si las peticiones request estan vacias nos vamos al index */
-        if (empty($_REQUEST[''])) {
-            require_once(__DIR__ . '/..//Views/Home/login_registers.php');
+        $view = $_REQUEST['view'] ?? '';
+
+        if ($view === 'recovery') {
+            require_once __DIR__ . '/../Views/Home/recovery_password.php';
+        } else {
+            require_once __DIR__ . '/../Views/Home/login_registers.php';
         }
     }
+
 
     public static function Paginas()
     {

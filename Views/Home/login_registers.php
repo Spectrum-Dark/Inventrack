@@ -40,7 +40,7 @@
                 <button type="button" class="btn-registrarse" onclick="mostrarRegistro()">Registrarse</button>
 
                 <div class="forgot">
-                    <a href="forgot.php">¿Olvidaste tu contraseña?</a>
+                    <a href="?view=recovery">¿Olvidaste tu contraseña?</a>
                 </div>
             </form>
         </div>
@@ -69,7 +69,7 @@
             </form>
 
             <div class="volver">
-                <a href="#" onclick="mostrarLogin()">← Volver al inicio de sesión</a>
+                <a href="" onclick="mostrarLogin()">← Volver al inicio de sesión</a>
             </div>
         </div>
     </div>

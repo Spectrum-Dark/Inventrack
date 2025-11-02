@@ -1,21 +1,168 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+/* --- Fuente y estilo base --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
 
-* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif;}
-body {background-color:#f9fafb; display:flex; align-items:center; justify-content:center; height:100vh;}
-.container {display:flex; justify-content:center; align-items:center;}
-.card {background-color:#fff; width:360px; border-radius:20px; box-shadow:0 5px 25px rgba(0,0,0,0.1); text-align:center; overflow:hidden;}
-.header {background-color:#1E40AF; padding:30px 0 20px; color:#fff; border-top-left-radius:20px; border-top-right-radius:20px;}
-.card h1 {font-size:1.5em; font-weight:600;}
-.card h2 {margin:25px 0 15px; font-size:1.3em; color:#111;}
-.input-group {position:relative; width:80%; margin:0 auto 15px;}
-.input-group i {position:absolute; top:50%; left:10px; transform:translateY(-50%); color:#333;}
-.input-group input {width:100%; padding:12px 40px; border:1px solid #d1d5db; border-radius:8px; font-size:14px;}
-.btn {background-color:#1E40AF; color:#fff; font-weight:500; border:none; border-radius:8px; padding:12px 0; width:80%; margin-top:10px; cursor:pointer; transition:0.3s;}
-.btn:hover {background-color:#173999;}
-.next {display:block; margin-top:20px; color:#1E40AF; font-weight:600; text-decoration:none; cursor:pointer;}
-.back {display:inline-block; margin-top:10px; color:#000; font-size:0.9em; text-decoration:none;}
-.back i {margin-right:5px;}
-.message {margin-top:15px; font-size:0.9em; color:#111; padding:8px;}
-/* Ocultar formularios por defecto */
-.form-step {display:none;}
-.form-step.active {display:block;}
+body {
+  background-color: #f5f7fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* --- Contenedor principal --- */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --- Tarjeta principal --- */
+.card {
+  background-color: #fff;
+  width: 380px;
+  min-height: 500px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Cabecera --- */
+.header {
+  background-color: #1e56a0;
+  padding: 30px 0;
+  color: #fff;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.header h1 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* --- Formulario por pasos --- */
+.form-step {
+  flex: 1;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 25px;
+}
+
+.form-step.active {
+  display: flex;
+}
+
+/* --- Subtítulo --- */
+.form-step h2 {
+  font-size: 22px;
+  color: #222;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+/* --- Campos de entrada (íconos alineados correctamente) --- */
+.input-group {
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.input-group i {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  transform: translateY(-50%);
+  color: #666;
+  font-size: 18px;
+  pointer-events: none;
+  transition: color 0.3s ease;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 16px 12px 44px; /* espacio para ícono a la izquierda */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-group input:focus {
+  border-color: #1e56a0;
+  box-shadow: 0 0 5px rgba(30, 86, 160, 0.2);
+}
+
+.input-group input:focus ~ i {
+  color: #1e56a0;
+}
+
+/* --- Botones principales --- */
+.btn {
+  background-color: #1e56a0;
+  color: white;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 0;
+  width: 100%;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 20px;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background-color: #163d75;
+}
+
+/* --- Mensajes --- */
+.message {
+  font-size: 14px;
+  color: #111;
+  background-color: #f1f5ff;
+  border-radius: 6px;
+  padding: 8px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* --- Enlaces --- */
+.next,
+.back {
+  display: block;
+  color: #1e56a0;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: color 0.3s ease;
+}
+
+.next:hover,
+.back:hover {
+  text-decoration: underline;
+  color: #163d75;
+}
+
+.back i,
+.next i {
+  margin-right: 5px;
+}
+
+.form-user {
+  width: 100%;
+}

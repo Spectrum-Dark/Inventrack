@@ -25,3 +25,8 @@ function handleCredentialResponse(response) {
   console.log("Token de Google:", response.credential);
   alert("Inicio de sesión con Google exitoso. Token recibido en consola.");
 }
+
+/* Cambiar a pestaña de reconvery password */
+function mostrarRecovery() {
+  
+}
