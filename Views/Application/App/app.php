@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script defer src="../../../Assets/Js/script.js"></script>
 </head>
+
 <body>
   <div class="sidebar">
     <h2 class="title_and_logo">Inventrack</h2>
@@ -23,8 +25,11 @@
 
   <div class="main">
     <!-- Vistas de las paginas -->
-    <?php require_once('../../../Controllers/controller.php'); $pages = new Controller(); $pages::Paginas(); ?>
+    <?php require_once('../../../Controllers/controller.php');
+    $pages = new Controller();
+    $pages::Paginas(); ?>
   </div>
 
 </body>
+
 </html>
