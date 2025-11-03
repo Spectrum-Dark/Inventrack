@@ -10,37 +10,39 @@ body {
 }
 
 /* Contenedor principal */
-.container-fluid {
-  padding: 30px 20px; /* menos padding para acercar las cards */
-  margin-left: 100px; /* ajusta según tu menú lateral */
+.dash-container-fluid {
+  padding: 30px 20px;
+  margin-left: 100px;
   width: calc(100% - 200px);
   box-sizing: border-box;
 }
 
-/* Título */
-h2 {
+/* Título principal */
+.dash-titulo {
   font-weight: 700;
   color: #333;
   margin-bottom: 30px;
 }
 
 /* ==== GRID DE TARJETAS ==== */
-.row {
+.dash-row-cards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start; /* alinea las cards a la izquierda */
-  gap: 25px 20px; /* separación entre tarjetas */
+  justify-content: flex-start;
+  gap: 25px 20px;
 }
 
-/* Cada tarjeta ocupa el 46% del ancho → 2 por fila */
-.col-md-3,
-.col-sm-6 {
+/* Cada tarjeta ocupa el 46% del ancho */
+.dash-col-ingresos,
+.dash-col-gastos,
+.dash-col-efectivo,
+.dash-col-ganancia {
   flex: 0 0 46%;
   max-width: 46%;
 }
 
 /* ==== ESTILOS DE LAS TARJETAS ==== */
-.card {
+.dash-card {
   border-radius: 15px;
   color: white;
   padding: 25px 20px;
@@ -50,74 +52,80 @@ h2 {
   min-height: 130px;
 }
 
-.card:hover {
+.dash-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
 }
 
 /* ==== COLORES DE TARJETAS ==== */
-.bg-primary {
+.dash-card-ingresos {
   background: linear-gradient(135deg, #007bff, #0056b3);
 }
 
-.bg-info {
+.dash-card-gastos {
   background: linear-gradient(135deg, #17a2b8, #117a8b);
 }
 
-.bg-purple {
+.dash-card-efectivo {
   background: linear-gradient(135deg, #7e57c2, #5e35b1);
 }
 
-.bg-success {
+.dash-card-ganancia {
   background: linear-gradient(135deg, #28a745, #1e7e34);
 }
 
-/* ==== TEXTOS ==== */
-.card h6 {
+/* ==== TEXTOS EN TARJETAS ==== */
+.dash-card-subtitulo {
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 10px;
   opacity: 0.9;
 }
 
-.card h2 {
+.dash-card-valor {
   font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 8px;
+  color: #f1f3f6;
 }
 
-.card p {
+.dash-card-texto {
   font-size: 0.9rem;
   margin: 0;
   opacity: 0.85;
 }
 
-/* ==== RESPONSIVE ==== */
-@media (max-width: 992px) {
-  .container-fluid {
-    margin-left: 0;
-    width: 100%;
-    padding: 20px;
-  }
-
-  .col-md-3,
-  .col-sm-6 {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-}
-
-.card {
+/* ==== CARD DE EMPLEADOS ==== */
+.dash-card-empleados {
   border-radius: 12px;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.card:hover {
+.dash-card-empleados:hover {
   transform: translateY(-4px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
 }
 
-.table thead th {
+.dash-card-header-empleados {
+  border-bottom: 1px solid #e9ecef;
+}
+
+.dash-card-titulo {
+  font-size: 1.1rem;
+  color: #1e56a0;
+}
+
+.dash-card-subtexto {
+  color: #6c757d;
+}
+
+.dash-icono-empleados {
+  color: #1e56a0 !important;
+}
+
+/* ==== TABLA ==== */
+.dash-tabla thead th {
   background-color: #f1f3f6;
   color: #333;
   font-weight: 600;
@@ -125,18 +133,27 @@ h2 {
   font-size: 0.85rem;
 }
 
-.table tbody tr:hover {
+.dash-tabla tbody tr:hover {
   background-color: #f8f9fa;
 }
 
-.card-title {
-  font-size: 1.1rem;
+.dash-tabla-col-nombre {
+  font-weight: 600;
 }
 
-.text-primary {
-  color: #1e56a0 !important;
-}
+/* ==== RESPONSIVE ==== */
+@media (max-width: 992px) {
+  .dash-container-fluid {
+    margin-left: 0;
+    width: 100%;
+    padding: 20px;
+  }
 
-.textocard{
-  color: #f1f3f6;
+  .dash-col-ingresos,
+  .dash-col-gastos,
+  .dash-col-efectivo,
+  .dash-col-ganancia {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
 }
