@@ -8,12 +8,25 @@ class MySQLDatabase
     private string $database = 'inventrack';
     private ?mysqli $connection = null;
 
-    public function __construct(string $database = '')
+    // 🔒 Instancia única (Singleton)
+    private static ?MySQLDatabase $instance = null;
+
+    // 🔒 Constructor privado (nadie puede crear nuevas instancias)
+    private function __construct(string $database = '')
     {
         if (!empty($database)) {
             $this->database = $database;
         }
         $this->openConnection();
+    }
+
+    // 🧩 Método estático para obtener la instancia única
+    public static function getInstance(string $database = ''): MySQLDatabase
+    {
+        if (self::$instance === null) {
+            self::$instance = new MySQLDatabase($database);
+        }
+        return self::$instance;
     }
 
     private function openConnection(): void
@@ -24,7 +37,6 @@ class MySQLDatabase
             throw new Exception('Error de conexión: ' . $this->connection->connect_error);
         }
 
-        // Aseguramos codificación UTF-8
         $this->connection->set_charset('utf8mb4');
     }
 
@@ -33,6 +45,7 @@ class MySQLDatabase
         if ($this->connection) {
             $this->connection->close();
             $this->connection = null;
+            self::$instance = null; // libera la instancia
         }
     }
 
@@ -46,13 +59,11 @@ class MySQLDatabase
             return $result;
         }
 
-        // Consulta preparada
         $stmt = $this->connection->prepare($sql);
         if (!$stmt) {
             throw new Exception('Error al preparar la consulta: ' . $this->connection->error);
         }
 
-        // Determinar tipos dinámicamente (s = string, i = int, d = double)
         $types = '';
         foreach ($params as $param) {
             $types .= match (gettype($param)) {

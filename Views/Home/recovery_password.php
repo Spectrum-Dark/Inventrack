@@ -53,9 +53,13 @@
         <?php endif; ?>
         <a href="?" class="next"><i class="fa-solid fa-arrow-left"></i> Volver al login</a>
       </div>
-
     </div>
   </div>
+  <script>
+    if (window.history.replaceState) {
+      window.history.replaceState(null, null, window.location.href);
+    }
+  </script>
 </body>
 
 </html>

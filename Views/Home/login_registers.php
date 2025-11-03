@@ -1,3 +1,4 @@
+<?php require_once('./Controllers/controller_home.php'); $Home = new Controller_Home_App(); $Home->Home_App(); ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -23,12 +24,10 @@
 
         <div class="login-body">
             <h2>Iniciar Sesión</h2>
-            <?php if (isset($error)) echo "<p class='error'>$error</p>"; ?>
-
-            <form method="POST" action="">
+            <form method="POST">
                 <div class="input-group">
                     <i class="fas fa-user"></i>
-                    <input type="text" name="usuario" placeholder="Usuario / Correo electronico" required>
+                    <input type="text" name="username" placeholder="Usuario / Correo electronico" required>
                 </div>
 
                 <div class="input-group">
@@ -36,7 +35,7 @@
                     <input type="password" name="contrasena" placeholder="Contraseña" required>
                 </div>
 
-                <button type="submit" name="login" class="btn-ingresar">Ingresar</button>
+                <button type="submit" name="action" value="login" class="btn-ingresar">Ingresar</button>
                 <button type="button" class="btn-registrarse" onclick="mostrarRegistro()">Registrarse</button>
 
                 <div class="forgot">
@@ -60,19 +59,24 @@
 
             <div class="divider">o completa el formulario</div>
 
-            <form action="register_process.php" method="POST">
-                <input type="text" name="nombre" placeholder="Nombre completo" required>
-                <input type="email" name="correo" placeholder="Correo electrónico" required>
-                <input type="password" name="contrasena" placeholder="Contraseña" required>
+            <form method="POST">
+                <input type="text" name="user_type" value="user" hidden>
+                <input type="text" name="username" placeholder="Nombre completo" required>
+                <input type="email" name="email" placeholder="Correo electrónico" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
                 <input type="password" name="confirmarpass" placeholder="Confirmar contraseña" required>
-                <button type="submit" class="btn-registrar">Registrar</button>
+                <button type="submit" name="action" value="register" class="btn-registrar">Registrar</button>
             </form>
-
             <div class="volver">
                 <a href="" onclick="mostrarLogin()">← Volver al inicio de sesión</a>
             </div>
         </div>
     </div>
+    <script>
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
 </body>
 
 </html>
