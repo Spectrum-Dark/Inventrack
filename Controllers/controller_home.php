@@ -23,6 +23,7 @@ class Controller_Home_App
             if ($_POST['password'] !== $_POST['confirmarpass']) {
                 die('Las contraseñas no coinciden.');
             } else {
+                /* Pendiente */
                 $data = [
                     'username' => $_POST['username'],
                     'password' => $_POST['password'],

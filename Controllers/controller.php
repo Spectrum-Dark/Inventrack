@@ -25,6 +25,9 @@ class Controller
                 case 'products':
                     require_once(__DIR__ . '/../Views/Application/Pages/products.php');
                     break;
+                case 'listproducts':
+                    require_once(__DIR__ . '/../Views/Application/Pages/listproducts.php');
+                    break;
                 case 'sales':
                     require_once(__DIR__ . '/../Views/Application/Pages/sales.php');
                     break;
