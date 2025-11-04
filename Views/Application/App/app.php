@@ -15,29 +15,31 @@
   <link rel="stylesheet" href="../../../Assets/Css/dashboard.css">
   <link rel="stylesheet" href="../../../Assets/Css/products.css">
   <link rel="stylesheet" href="../../../Assets/Css/listproducts.css">
-
 </head>
 
 <body>
+  <?php $view = $_GET['view'] ?? 'dashboard'; ?>
+
   <div class="sidebar">
     <h2 class="title_and_logo">Inventrack</h2>
     <ul class="menu">
-      <li><a href="?view=dashboard" class="menu-item"><i class="fas fa-home"></i>Inicio</a></li>
-      <li><a href="?view=products" class="menu-item"><i class="fas fa-box"></i>Productos</a></li>
-      <li><a href="?view=listproducts" class="menu-item"><i class="fas fa-box"></i>Lista Prod..</a></li>
-      <li><a href="?view=sales" class="menu-item"><i class="fas fa-chart-bar"></i>Ventas</a></li>
-      <li><a href="?view=report" class="menu-item"><i class="fas fa-file-alt"></i>Reportes</a></li>
-      <li><a href="?view=settings" class="menu-item"><i class="fas fa-cog"></i>Configuración</a></li>
+      <li><a href="?view=dashboard" class="menu-item <?= $view == 'dashboard' ? 'active' : '' ?>"><i class="fas fa-home"></i>Inicio</a></li>
+      <li><a href="?view=products" class="menu-item <?= $view == 'products' ? 'active' : '' ?>"><i class="fas fa-box"></i>Productos</a></li>
+      <li><a href="?view=listproducts" class="menu-item <?= $view == 'listproducts' ? 'active' : '' ?>"><i class="fas fa-box"></i>Lista Prod..</a></li>
+      <li><a href="?view=sales" class="menu-item <?= $view == 'sales' ? 'active' : '' ?>"><i class="fas fa-chart-bar"></i>Ventas</a></li>
+      <li><a href="?view=report" class="menu-item <?= $view == 'report' ? 'active' : '' ?>"><i class="fas fa-file-alt"></i>Reportes</a></li>
+      <li><a href="?view=settings" class="menu-item <?= $view == 'settings' ? 'active' : '' ?>"><i class="fas fa-cog"></i>Configuración</a></li>
     </ul>
   </div>
 
   <div class="main">
     <!-- Vistas de las paginas -->
-    <?php require_once('../../../Controllers/controller.php');
-    $pages = new Controller();
-    $pages::Paginas(); ?>
+    <?php
+      require_once('../../../Controllers/controller.php');
+      $pages = new Controller();
+      $pages::Paginas();
+    ?>
   </div>
 
 </body>
-
 </html>
