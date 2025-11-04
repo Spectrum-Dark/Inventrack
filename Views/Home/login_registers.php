@@ -1,4 +1,6 @@
-<?php require_once('./Controllers/controller_home.php'); $Home = new Controller_Home_App(); $Home->Home_App(); ?>
+<?php require_once('./Controllers/controller_home.php');
+$Home = new Controller_Home_App();
+$Home->Home_App(); ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -11,10 +13,10 @@
     <script defer src="./Assets/Js/script.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script defer src="https://accounts.google.com/gsi/client" async></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
-
     <!-- LOGIN -->
     <div class="login-container active" id="loginScreen">
         <div class="login-header">
@@ -32,7 +34,7 @@
 
                 <div class="input-group">
                     <i class="fas fa-lock"></i>
-                    <input type="password" name="contrasena" placeholder="Contraseña" required>
+                    <input type="password" name="password" placeholder="Contraseña" required>
                 </div>
 
                 <button type="submit" name="action" value="login" class="btn-ingresar">Ingresar</button>

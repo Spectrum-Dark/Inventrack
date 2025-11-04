@@ -1,3 +1,4 @@
+<?php require_once('../../../Controllers/controller.php'); $App = new Controller(); $App::Session_App(); ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -29,17 +30,15 @@
       <li><a href="?view=sales" class="menu-item <?= $view == 'sales' ? 'active' : '' ?>"><i class="fas fa-chart-bar"></i>Ventas</a></li>
       <li><a href="?view=report" class="menu-item <?= $view == 'report' ? 'active' : '' ?>"><i class="fas fa-file-alt"></i>Reportes</a></li>
       <li><a href="?view=settings" class="menu-item <?= $view == 'settings' ? 'active' : '' ?>"><i class="fas fa-cog"></i>Configuración</a></li>
+      <li><a href="?view=signout" class="menu-item <?= $view == 'signout' ? 'active' : '' ?>"><i class="fas fa-sign-out-alt"></i>Cerrar Sesion</a></li>
     </ul>
   </div>
 
   <div class="main">
     <!-- Vistas de las paginas -->
     <?php
-      require_once('../../../Controllers/controller.php');
-      $pages = new Controller();
-      $pages::Paginas();
+      $App::Paginas();
     ?>
   </div>
-
 </body>
 </html>

@@ -11,6 +11,11 @@ class Controller_Home_App
         $this->methods = new functions_app();
     }
 
+    public function User_Login(array $data)
+    {
+        return $this->methods->Login($data);
+    }
+
     public function User_Register(array $data)
     {
         $this->methods->Register($data);
@@ -32,8 +37,27 @@ class Controller_Home_App
                         'user_type' => $_POST['user_type'],
                     ];
                     $this->User_Register($data);
-                } else {
-                    /* die('Por favor, complete todos los campos obligatorios.'); */
+                }
+            }
+        } else {
+            if (isset($_POST['action']) && !empty($_POST['action']) && $_POST['action'] === 'login') {
+                if (!empty($_POST['username']) && !empty($_POST['password'])) {
+                    $data = [
+                        'username' => $_POST['username'],
+                        'password' => $_POST['password'],
+                    ];
+                    $user = $this->User_Login($data);
+
+                    if ($user) {
+                        /* Creamos sesion del sistema */
+                        session_start();
+                        $_SESSION['username'] = $user['User Name'];
+                        $_SESSION['user_type'] = $user['User Type'];
+
+                        /* Nos redirigimos a applicaction app */
+                        header('Location: views/Application/App/app.php');
+                        exit();
+                    }
                 }
             }
         }
