@@ -15,7 +15,7 @@ class functions_app
 
     public function Register(array $data): bool
     {
-        /* try {
+        try {
             $Sql = "Call Insert_User (?, ?, ?, ?);";
             $Paramerts = [
                 $data['username'],
@@ -28,8 +28,6 @@ class functions_app
         } catch (Exception $e) {
             error_log($e->getMessage());
             return false;
-        } */
-       echo "OK";
-       return true;
+        }
     }
 }

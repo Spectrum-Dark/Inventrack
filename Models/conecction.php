@@ -5,6 +5,7 @@ class MySQLDatabase
     private string $host = 'localhost';
     private string $username = 'root';
     private string $password = '';
+    //private string $password = 'josue123';
     private string $database = 'inventrack';
     private ?mysqli $connection = null;
 

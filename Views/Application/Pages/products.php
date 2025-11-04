@@ -56,7 +56,7 @@
 
                 <div class="form-actions">
                     <button type="button" id="btnAdd">Agregar</button>
-                    <button type="reset" id="btnClose">Cerrar</button>
+                    <button type="reset" id="btnClose">Limpiar</button>
                 </div>
             </form>
         </div>

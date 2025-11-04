@@ -20,6 +20,3 @@ git push origin mastergit push origin master
 
 # GENERAL 
 http://localhost/Inventrack/Views/Application/App/app.php
-
-#Vidal
-http://localhost:8081/Inventrack/Views/Application/App/app.php

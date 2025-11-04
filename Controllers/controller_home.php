@@ -23,14 +23,18 @@ class Controller_Home_App
             if ($_POST['password'] !== $_POST['confirmarpass']) {
                 die('Las contraseñas no coinciden.');
             } else {
-                /* Pendiente */
-                $data = [
-                    'username' => $_POST['username'],
-                    'password' => $_POST['password'],
-                    'email' => $_POST['email'],
-                    'user_type' => $_POST['user_type'],
-                ];
-                $this->User_Register($data);
+                /* validamos si las variables no estan vacias */
+                if (!empty($_POST['username']) && !empty($_POST['password']) && !empty($_POST['email']) && !empty($_POST['user_type'])) {
+                    $data = [
+                        'username' => $_POST['username'],
+                        'password' => $_POST['password'],
+                        'email' => $_POST['email'],
+                        'user_type' => $_POST['user_type'],
+                    ];
+                    $this->User_Register($data);
+                } else {
+                    /* die('Por favor, complete todos los campos obligatorios.'); */
+                }
             }
         }
     }

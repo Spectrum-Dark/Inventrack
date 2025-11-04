@@ -1,4 +1,4 @@
--- Active: 1762210500462@@127.0.0.1@3306@inventrack
+-- Active: 1761759741520@@127.0.0.1@3306@inventrack
 
 /* Creamos la base de datos */
 CREATE DATABASE inventrack;
@@ -96,3 +96,6 @@ END
 /
 ;
 DELIMITER;
+
+
+SELECT * FROM users;
