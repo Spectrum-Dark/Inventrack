@@ -14,7 +14,7 @@ git commit -m 'Demon 1.3'
 
 4-#Subir cambios al github
 
-git push origin master
+git push origin mastergit push origin master
 
 #LINK DE LA APP ===================================================>
 
