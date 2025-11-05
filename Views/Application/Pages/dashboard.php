@@ -15,7 +15,7 @@
         <div class="card text-white bg-primary shadow border-0 dash-card dash-card-ingresos">
           <div class="card-body dash-card-body">
             <h6 class="fw-semibold dash-card-subtitulo">Total de Ventas Generadas</h6>
-            <h2 class="fw-bold textocard dash-card-valor">$000,000</h2>
+            <h2 class="fw-bold textocard dash-card-valor">000</h2>
           </div>
         </div>
       </div>
@@ -25,7 +25,7 @@
         <div class="card text-white bg-info shadow border-0 dash-card dash-card-gastos">
           <div class="card-body dash-card-body">
             <h6 class="fw-semibold dash-card-subtitulo">Clientes Registrados</h6>
-            <h2 class="fw-bold textocard dash-card-valor">👤000,000</h2>
+            <h2 class="fw-bold textocard dash-card-valor">000</h2>
           </div>
         </div>
       </div>
@@ -35,7 +35,7 @@
         <div class="card text-white bg-purple shadow border-0 dash-card dash-card-efectivo">
           <div class="card-body dash-card-body">
             <h6 class="fw-semibold dash-card-subtitulo">Ganancia Neta</h6>
-            <h2 class="fw-bold textocard dash-card-valor">$000,000</h2>
+            <h2 class="fw-bold textocard dash-card-valor">$000</h2>
           </div>
         </div>
       </div>
@@ -45,7 +45,7 @@
         <div class="card text-white bg-success shadow border-0 dash-card dash-card-ganancia">
           <div class="card-body dash-card-body">
             <h6 class="fw-semibold dash-card-subtitulo">Facturas Emitidas</h6>
-            <h2 class="fw-bold textocard dash-card-valor">🧾000,000</h2>
+            <h2 class="fw-bold textocard dash-card-valor">000</h2>
           </div>
         </div>
       </div>
