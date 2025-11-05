@@ -1,3 +1,4 @@
+-- Active: 1762210500462@@127.0.0.1@3306@inventrack
 -- Base de datos
 CREATE DATABASE IF NOT EXISTS inventrack;
 USE inventrack;
