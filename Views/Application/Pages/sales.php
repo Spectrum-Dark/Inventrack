@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ventas</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <h1>VENTAS</h1>
+<div class="container">
+  <h2>VENTAS</h2>
 
   <div class="form-container">
     <div class="inputs">
@@ -45,10 +37,10 @@
         <td>2</td>
         <td>300.00</td>
         <td><button class="delete-btn" title="Eliminar producto">
-          <svg xmlns="http://www.w3.org/2000/svg" class="icon-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M3 6h18M9 6v12a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1V6M10 11h4M4 6l1 14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2l1-14"/>
-          </svg>
-        </button></td>
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 6h18M9 6v12a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1V6M10 11h4M4 6l1 14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2l1-14" />
+            </svg>
+          </button></td>
       </tr>
       <tr>
         <td>2</td>
@@ -58,10 +50,10 @@
         <td>1</td>
         <td>200.00</td>
         <td><button class="delete-btn" title="Eliminar producto">
-          <svg xmlns="http://www.w3.org/2000/svg" class="icon-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M3 6h18M9 6v12a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1V6M10 11h4M4 6l1 14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2l1-14"/>
-          </svg>
-        </button></td>
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 6h18M9 6v12a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1V6M10 11h4M4 6l1 14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2l1-14" />
+            </svg>
+          </button></td>
       </tr>
     </tbody>
   </table>
@@ -165,5 +157,4 @@
     // Actualizar total inicial
     actualizarTotal();
   </script>
-</body>
-</html>
+</div>
