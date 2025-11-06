@@ -1,15 +1,15 @@
-<div class="sales-container">
+<div class="container">
   <h2 class="sales-title">VENTAS</h2>
 
   <div class="sales-form-container">
     <div class="sales-inputs">
       <div class="sales-input-group">
         <label for="codigo"><strong>Código del producto:</strong></label>
-        <input type="text" id="codigo" class="sales-input" placeholder="Escribe el código del producto">
+        <input type="text" id="codigo" class="sales-input" placeholder="Ingrese el código del producto">
       </div>
       <div class="sales-input-group">
         <label for="numero"><strong>Cantidad del producto:</strong></label>
-        <input type="text" id="numero" class="sales-input" placeholder="Escribe la cantidad del producto" maxlength="10">
+        <input type="text" id="numero" class="sales-input" placeholder="Ingrese cantidad" maxlength="10">
       </div>
     </div>
     <button class="sales-agregar" id="agregarBtn">Agregar producto</button>
