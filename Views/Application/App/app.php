@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="../../../Assets/Css/app.css">
   <link rel="stylesheet" href="../../../Assets/Css/pages.css">
   <script defer src="../../../Assets/Js/script.js"></script>
+  <script defer src="../../../Assets/Js/sales.js"></script>
+  <script defer src="../../../Assets/Js/listproducts.js"></script>
   <!-- Elementos del vistas -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
