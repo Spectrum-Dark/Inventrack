@@ -9,7 +9,7 @@ body {
     padding: 0;
 }
 
-.container {
+.ventas-container {
     width: 90%;
     max-width: 1200px;
     margin: 30px auto;
@@ -21,46 +21,120 @@ body {
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
     padding: 25px 30px;
     margin-bottom: 30px;
-
-    /* Animación de entrada */
     opacity: 0;
     transform: translateY(15px);
     animation: fadeIn 0.6s ease forwards;
 }
 
-h2 {
+.titulo-tabla {
     color: #333;
     font-weight: 600;
     margin-bottom: 20px;
     text-align: left;
 }
 
-.table-card table {
+/* 🔍 Búsqueda y Filtro */
+.busqueda-filtro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    gap: 15px;
+}
+
+.campo-busqueda, .campo-filtro {
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+}
+
+.campo-busqueda label,
+.campo-filtro label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 6px;
+    font-size: 15px;
+}
+
+.input-busqueda,
+.input-filtro {
+    padding: 8px 10px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.input-busqueda:focus,
+.input-filtro:focus {
+    border-color: #263238;
+    outline: none;
+}
+
+/* 🧾 Tabla */
+.tabla-productos {
     width: 100%;
     border-collapse: collapse;
     overflow: hidden;
     border-radius: 10px;
 }
 
-.table-card thead {
+.encabezado-tabla {
     background-color: #263238;
     color: white;
 }
 
-.table-card th, .table-card td {
+.tabla-productos th, .tabla-productos td {
     padding: 12px 10px;
     text-align: left;
     border-bottom: 1px solid #ddd;
 }
 
-.table-card tbody tr:nth-child(even) {
+.cuerpo-tabla tr:nth-child(even) {
     background-color: #f1f1f1;
 }
 
-.table-card tbody tr:hover {
+.cuerpo-tabla tr:hover {
     background-color: #e0e0e0;
 }
 
+.acciones {
+    display: flex;
+    gap: 8px;
+}
+
+/* 🧩 Botones */
+.btn-editar,
+.btn-eliminar {
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-editar {
+    background-color: #1976d2;
+    color: #fff;
+}
+
+.btn-eliminar {
+    background-color: #d32f2f;
+    color: #fff;
+}
+
+.btn-editar:hover {
+    background-color: #1565c0;
+    transform: scale(1.05);
+}
+
+.btn-eliminar:hover {
+    background-color: #b71c1c;
+    transform: scale(1.05);
+}
+
+/* ✨ Animación */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(15px); }
     to { opacity: 1; transform: translateY(0); }
