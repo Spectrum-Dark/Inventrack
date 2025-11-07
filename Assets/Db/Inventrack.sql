@@ -107,7 +107,6 @@ END$$
 DELIMITER ;
 
 -- =============================================================================
-
 /* Creamos la tabla productos */
 CREATE TABLE IF NOT EXISTS products (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -135,7 +134,6 @@ CREATE TABLE IF NOT EXISTS products (
     INDEX idx_category (category),
     INDEX idx_supplier (supplier)
 );
-
 -- =============================================================================
 -- Insert_Product
 
@@ -161,11 +159,9 @@ BEGIN
     WHERE 
         id_prod LIKE CONCAT('PROD-', V_YEAR, '-%');
     
-    -- Construir el nuevo código (ej: PROD-2025-0001)
+    -- Construir el nuevo código (ej: PROD-0001)
     SET V_PRODUCT_ID = CONCAT(
-        'PROD-', 
-        V_YEAR, 
-        '-', 
+        'PROD-',
         LPAD(V_NEXT_ID, 4, '0') -- Rellena con ceros a la izquierda hasta 4 dígitos
     );
 

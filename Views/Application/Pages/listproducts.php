@@ -10,7 +10,7 @@
             </div>
 
             <div class="campo-filtro">
-                <label for="filtrar"><strong>Filtrar por:</strong></label>
+                <label for="filtrar"><strong>Filtrar por propiedades</strong></label>
                 <select id="filtrar" class="input-filtro">
                     <option hidden value="">Filtrar por:</option>
                     <option value="1">Nombre</option>
