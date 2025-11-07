@@ -1,31 +1,14 @@
 <div class="container">
 
-<?php
-// Datos simulados (en producción vienen de la base de datos)
-$usuario = [
-  'nombre' => 'Juan Pérez',
-  'correo' => 'juan.perez@example.com',
-  'idioma' => 'Español',
-  'copias' => '1 por semana'
-];
-?>
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Configuración - Inventrack</title>
-
-  <!-- ====== Librerías Externas ====== -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <!-- ====== CSS Propio ====== -->
-  <link rel="stylesheet" href="../../assets/css/configuracion.css">
-
-</head>
-<body>
+  <?php
+  // Datos simulados (en producción vienen de la base de datos)
+  $usuario = [
+    'nombre' => 'Juan Pérez',
+    'correo' => 'juan.perez@example.com',
+    'idioma' => 'Español',
+    'copias' => '1 por semana'
+  ];
+  ?>
 
   <div class="config-layout">
     <div class="config-panel">
@@ -159,19 +142,13 @@ $usuario = [
     function toggleSection(sectionId) {
       const content = document.getElementById(`content-${sectionId}`);
       const toggleIcon = document.getElementById(`toggle-${sectionId}`);
-      
+
       content.classList.toggle('open');
       toggleIcon.classList.toggle('rotated');
     }
 
     // Inicializar una sección abierta por defecto
     document.addEventListener('DOMContentLoaded', function() {
-      toggleSection('preferencias');
+      toggleSection('');
     });
   </script>
-
-</body>
-</html>
-
-
-</div>
