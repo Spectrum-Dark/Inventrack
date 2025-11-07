@@ -1,144 +1,135 @@
-/* ==== Estilos del Dashboard Inventrack ==== */
-
-/* Fondo general */
-body {
+/* ==== ESTILOS GENERALES ==== */
+body.dash-body {
   background-color: #f8f9fa !important;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Poppins", "Segoe UI", sans-serif;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* evita la barra horizontal */
+  overflow-x: hidden;
 }
 
-/* Contenedor principal */
+/* ==== CONTENEDOR ==== */
 .dash-container-fluid {
   padding: 30px 20px;
   margin-left: 100px;
   width: calc(100% - 200px);
-  box-sizing: border-box;
 }
 
-/* Título principal */
+/* ==== TÍTULO ==== */
 .dash-titulo {
   font-weight: 700;
   color: #333;
   margin-bottom: 30px;
+  letter-spacing: 0.5px;
 }
 
-/* ==== GRID DE TARJETAS ==== */
+/* ==== CARDS ==== */
 .dash-row-cards {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  gap: 25px 20px;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 20px;
 }
 
-/* Cada tarjeta ocupa el 46% del ancho */
-.dash-col-ingresos,
-.dash-col-gastos,
-.dash-col-efectivo,
-.dash-col-ganancia {
-  flex: 0 0 46%;
-  max-width: 46%;
+.dash-col-fixed {
+  flex: 0 0 24%;
+  max-width: 24%;
 }
 
-/* ==== ESTILOS DE LAS TARJETAS ==== */
 .dash-card {
   border-radius: 15px;
-  color: white;
   padding: 25px 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  text-align: left;
-  min-height: 130px;
+  text-align: center;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .dash-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
 }
 
-/* ==== COLORES DE TARJETAS ==== */
-.dash-card-ingresos {
-  background: linear-gradient(135deg, #007bff, #0056b3);
-}
+/* Colores */
+.dash-card-ingresos { background: linear-gradient(135deg, #007bff, #0056b3); color: #fff; }
+.dash-card-clientes { background: linear-gradient(135deg, #17a2b8, #117a8b); color: #fff; }
+.dash-card-ganancia-neta { background: linear-gradient(135deg, #7e57c2, #5e35b1); color: #fff; }
+.dash-card-facturas { background: linear-gradient(135deg, #28a745, #1e7e34); color: #fff; }
 
-.dash-card-gastos {
-  background: linear-gradient(135deg, #17a2b8, #117a8b);
-}
-
-.dash-card-efectivo {
-  background: linear-gradient(135deg, #7e57c2, #5e35b1);
-}
-
-.dash-card-ganancia {
-  background: linear-gradient(135deg, #28a745, #1e7e34);
-}
-
-/* ==== TEXTOS EN TARJETAS ==== */
 .dash-card-subtitulo {
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 10px;
-  opacity: 0.9;
 }
 
 .dash-card-valor {
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 8px;
   color: #f1f3f6;
 }
 
-.dash-card-texto {
-  font-size: 0.9rem;
-  margin: 0;
-  opacity: 0.85;
-}
-
-/* ==== CARD DE EMPLEADOS ==== */
-.dash-card-empleados {
-  border-radius: 12px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.dash-card-empleados:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-}
-
-.dash-card-header-empleados {
-  border-bottom: 1px solid #e9ecef;
-}
-
-.dash-card-titulo {
-  font-size: 1.1rem;
-  color: #1e56a0;
-}
-
-.dash-card-subtexto {
-  color: #6c757d;
-}
-
-.dash-icono-empleados {
-  color: #1e56a0 !important;
-}
-
 /* ==== TABLA ==== */
+.dash-card-eventos {
+  margin-top: 40px; /* 🔹 Separación añadida entre los cuadros y la tabla */
+}
+
+.dash-tabla {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
 .dash-tabla thead th {
-  background-color: #f1f3f6;
-  color: #333;
+  background-color: #212529;
+  color: #fff;
   font-weight: 600;
   text-transform: uppercase;
-  font-size: 0.85rem;
+  padding: 14px 16px;
+  border-bottom: 2px solid #343a40;
+  letter-spacing: 0.5px;
 }
 
-.dash-tabla tbody tr:hover {
+/* ==== CELDAS ==== */
+.dash-tabla tbody td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #dee2e6;
+  color: #333;
+  vertical-align: middle;
+  transition: all 0.3s ease;
+}
+
+.dash-tabla tbody tr:nth-child(even) {
   background-color: #f8f9fa;
 }
 
-.dash-tabla-col-nombre {
+.dash-tabla tbody tr:hover {
+  background-color: #e9ecef;
+  transform: scale(1.01);
+}
+
+/* ==== TEXTOS ELEGANTES ==== */
+.texto-usuario {
   font-weight: 600;
+  color: #0d6efd;
+}
+
+.texto-accion {
+  font-style: italic;
+  font-weight: 500;
+  color: #343a40;
+}
+
+.texto-detalle {
+  color: #555;
+  font-size: 0.95rem;
 }
 
 /* ==== RESPONSIVE ==== */
@@ -149,11 +140,13 @@ body {
     padding: 20px;
   }
 
-  .dash-col-ingresos,
-  .dash-col-gastos,
-  .dash-col-efectivo,
-  .dash-col-ganancia {
+  .dash-col-fixed {
     flex: 0 0 100%;
     max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .dash-row-cards {
+    flex-wrap: wrap;
   }
 }
