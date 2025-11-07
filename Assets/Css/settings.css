@@ -1,0 +1,279 @@
+/* ====== Estilo General ====== */
+body {
+  background-color: #f2f5f8;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* ====== Layout Principal ====== */
+.config-layout {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.config-panel {
+  background-color: #fff;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 20px;
+  transition: all 0.3s ease;
+  margin: 0;
+}
+
+.config-titulo {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #2a3f54;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #dee2e6;
+  padding-bottom: 15px;
+  width: 100%;
+}
+
+/* ====== Cards de Configuración ====== */
+.config-card {
+  margin-bottom: 20px;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fafbfc;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.config-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.config-card-header {
+  padding: 18px 20px;
+  background-color: #e9ecef;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  color: #2f3d4a;
+  width: 100%;
+}
+
+.config-card-header:hover {
+  background-color: #dee2e6;
+}
+
+.config-card-header h3 {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2rem;
+}
+
+.toggle-icon {
+  transition: transform 0.3s ease;
+}
+
+.toggle-icon.rotated {
+  transform: rotate(180deg);
+}
+
+.config-card-content {
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  width: 100%;
+}
+
+.config-card-content.open {
+  padding: 25px;
+  max-height: 1000px;
+}
+
+/* ====== Items Internos ====== */
+.config-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+  width: 100%;
+}
+
+.config-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #3b4a54;
+  font-weight: 500;
+  font-size: 1rem;
+  min-width: 220px;
+  flex: 1;
+}
+
+.config-input {
+  flex: 2;
+  min-width: 300px;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #fff;
+  transition: border-color 0.3s;
+}
+
+.config-input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* ====== Botones ====== */
+.btn-guardar {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.btn-guardar:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.btn-secundario {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.btn-secundario:hover {
+  background-color: #5a6268;
+  transform: translateY(-1px);
+}
+
+.btn-peligro {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.btn-peligro:hover {
+  background-color: #bb2d3b;
+  transform: translateY(-1px);
+}
+
+.config-save {
+  text-align: center;
+  margin-top: 30px;
+  width: 100%;
+}
+
+/* ====== Ajustes para inputs de archivo ====== */
+input[type="file"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: white;
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 768px) {
+  .config-panel {
+    padding: 15px;
+  }
+  
+  .config-titulo {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+  }
+  
+  .config-card-header {
+    padding: 15px;
+  }
+  
+  .config-card-header h3 {
+    font-size: 1.1rem;
+  }
+  
+  .config-card-content.open {
+    padding: 20px;
+  }
+  
+  .config-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .config-label {
+    min-width: 100%;
+    margin-bottom: 5px;
+  }
+  
+  .config-input {
+    min-width: 100%;
+    width: 100%;
+  }
+  
+  .btn-guardar {
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .config-panel {
+    padding: 10px;
+  }
+  
+  .config-titulo {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+  
+  .config-card-header {
+    padding: 12px 15px;
+  }
+  
+  .config-card-header h3 {
+    font-size: 1rem;
+  }
+  
+  .config-card-content.open {
+    padding: 15px;
+  }
+  
+  .btn-secundario, .btn-peligro {
+    width: 100%;
+    text-align: center;
+  }
+}
