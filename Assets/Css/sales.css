@@ -1,168 +1,222 @@
-.sales-title {
-  font-size: 48px;
-  font-weight: 400;
-  margin-bottom: 25px;
+.subcontainer {
+  background: #fff;
+  padding: 30px;
+  margin: 20px auto; /* <-- Centrado + margen superior/inferior */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  /* Ajuste clave: ancho máximo */
+  max-width: 1100px; /* <-- Puedes ajustar: 1000px, 900px, etc. */
+  width: 100%; /* <-- Ocupa hasta el max-width */
+  box-sizing: border-box; /* <-- Importante para padding */
 }
 
+.sales-title {
+  font-size: 40px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+  border-left: 6px solid #2196f3;
+  padding-left: 10px;
+}
+
+/* Contenedor principal del formulario */
 .sales-form-container {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  flex-wrap: wrap;
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
   margin-bottom: 25px;
+  gap: 20px; /* <-- ESPACIO ENTRE ELEMENTOS */
 }
 
+/* Grupo de inputs: código y cantidad */
 .sales-inputs {
   display: flex;
-  flex-direction: column;
-  width: 70%;
+  flex-wrap: wrap;
+  gap: 20px; /* <-- ESPACIO ENTRE CÓDIGO Y CANTIDAD */
+  flex: 1;
+  min-width: 300px;
 }
 
+/* Cada input individual */
 .sales-input-group {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 10px;
+  flex: 1;
+  min-width: 200px; /* Evita que se compriman demasiado */
 }
 
 .sales-input-group label {
+  display: block;
   font-size: 15px;
-  color: #222;
-  font-weight: bold;
-  margin-bottom: 4px;
+  color: #444;
+  font-weight: 600;
+  margin-bottom: 6px;
 }
 
 .sales-input {
-  border: none;
-  border-bottom: 3px solid #2196f3;
-  font-size: 16px;
-  padding: 8px;
+  width: 100%;
+  max-width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 15px;
   outline: none;
-  transition: border-color 0.3s ease;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
 .sales-input:focus {
-  border-bottom-color: #0d47a1;
+  border-color: #2196f3;
+  box-shadow: 0 0 4px rgba(33, 150, 243, 0.3);
 }
 
-#numero {
-  width: 160px;
-}
-
-/* Botón Agregar producto */
+/* Botón Agregar */
 .sales-agregar {
-  background-color: #2e7d32;
+  background-color: #28a745;
   color: white;
   border: none;
-  padding: 10px 18px;
+  padding: 0 24px;
   font-size: 15px;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
   transition: background 0.3s, transform 0.1s;
-  height: 40px;
+  height: 42px;
+  font-weight: 600;
+  white-space: nowrap;
+  align-self: flex-end;
 }
 
 .sales-agregar:hover {
-  background-color: #1b5e20;
+  background-color: #218838;
   transform: scale(1.05);
 }
 
-/* Tabla de productos */
+/* Tabla */
 .sales-table {
   width: 100%;
   border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
   margin-top: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.sales-table thead {
+  background: #2196f3;
+  color: white;
+  text-transform: uppercase;
 }
 
 .sales-table th,
 .sales-table td {
-  border: 1px solid #ddd;
-  padding: 10px;
-  text-align: left;
+  padding: 12px 14px;
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
 }
 
-.sales-table th {
-  background-color: #f5f5f5;
-  font-weight: bold;
+.sales-table tbody tr:nth-child(even) {
+  background: #f9f9f9;
 }
 
-.sales-table td {
-  font-size: 15px;
+.sales-table tbody tr:hover {
+  background-color: #e3f2fd;
+  transition: 0.2s;
 }
 
+/* Total */
 .sales-total {
-  margin-top: 20px;
-  font-size: 22px;
+  margin-top: 25px;
+  font-size: 24px;
   font-weight: bold;
+  text-align: right;
+  color: #222;
 }
 
 /* Botones inferiores */
 .sales-buttons {
-  margin-top: 15px;
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
 }
 
 .sales-buttons .btn {
-  display: inline-block;
   color: white;
   border: none;
-  padding: 10px 18px;
-  border-radius: 4px;
+  padding: 12px 22px;
+  border-radius: 8px;
   font-size: 15px;
   cursor: pointer;
-  margin-right: 8px;
-  transition: 0.3s;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
 .sales-buttons .btn.green {
-  background-color: #2e7d32;
+  background-color: #28a745;
 }
 
 .sales-buttons .btn.green:hover {
-  background-color: #1b5e20;
+  background-color: #218838;
+  transform: translateY(-2px);
 }
 
 .sales-buttons .btn.red {
-  background-color: #c62828;
+  background-color: #dc3545;
 }
 
 .sales-buttons .btn.red:hover {
-  background-color: #8e0000;
+  background-color: #b02a37;
+  transform: translateY(-2px);
 }
 
-/* Ícono de basura */
+/* Botón eliminar */
 .sales-delete-btn {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 4px;
+  padding: 6px;
 }
 
 .icon-trash {
   width: 22px;
   height: 22px;
-  stroke: #d32f2f;
+  stroke: #dc3545;
   transition: 0.2s;
 }
 
 .icon-trash:hover {
-  stroke: #b71c1c;
-  transform: scale(1.1);
+  stroke: #a71d2a;
+  transform: scale(1.2);
 }
 
-@media (max-width: 600px) {
+/* Responsividad */
+@media (max-width: 768px) {
   .sales-form-container {
     flex-direction: column;
     align-items: stretch;
-  }
-
-  .sales-agregar {
-    width: 100%;
-    margin-top: 10px;
   }
 
   .sales-inputs {
     width: 100%;
   }
 
-  #numero {
+  .sales-agregar {
+    width: 100%;
+  }
+
+  .sales-total {
+    text-align: center;
+  }
+
+  .sales-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .sales-buttons .btn {
     width: 100%;
   }
 }

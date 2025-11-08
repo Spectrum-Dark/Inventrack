@@ -1,27 +1,9 @@
-<!doctype html>
-<html lang="es">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Panel de Control — Inventrack</title>
-
-  <!-- Fuentes e iconos -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-
-  <!-- Estilos (CSS externo) -->
-  <link rel="stylesheet" href="./Assets/Css/dashboard.css">
-</head>
-<body>
+<div class="container">
   <div class="page-wrap">
     <!-- Encabezado -->
     <header class="topbar">
       <div class="greeting">
         <h1>Dashboard</h1>
-      </div>
-      <div class="top-search">
-        <input id="globalSearch" type="search" placeholder="Buscar" aria-label="Buscar">
       </div>
     </header>
 
@@ -31,17 +13,15 @@
         <div class="icon"><i class="fa-solid fa-dollar-sign"></i></div>
         <div class="info">
           <div class="title">Total de Ventas Realizadas</div>
-          <div class="value">$128,450</div>
-          <div class="small positive"><i class="fa-solid fa-arrow-up"></i> 11% este mes</div>
+          <div class="value value-ventas">$128,450</div>
         </div>
       </div>
 
       <div class="card stat">
-        <div class="icon"><i class="fa-solid fa-users"></i></div>
+        <div class="icon"><i class="fa-solid fa-boxes-stacked"></i></div>
         <div class="info">
-          <div class="title">Clientes Registrados</div>
-          <div class="value">2,154</div>
-          <div class="small negative"><i class="fa-solid fa-arrow-down"></i> 5% este mes</div>
+          <div class="title">Total en Stock</div>
+          <div class="value value-stock">2,154</div>
         </div>
       </div>
 
@@ -49,13 +29,7 @@
         <div class="icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
         <div class="info">
           <div class="title">Facturas Emitidas</div>
-          <div class="value">312</div>
-          <div class="small avatars">
-            <img alt="a" src="https://i.pravatar.cc/32?img=10">
-            <img alt="b" src="https://i.pravatar.cc/32?img=11">
-            <img alt="c" src="https://i.pravatar.cc/32?img=12">
-            <img alt="d" src="https://i.pravatar.cc/32?img=13">
-          </div>
+          <div class="value value-facturas">312</div>
         </div>
       </div>
     </section>
@@ -65,7 +39,7 @@
       <div class="panel-header">
         <h2>Registro de Eventos</h2>
         <div class="panel-controls">
-          <div class="tab-active">Eventos Activos</div>
+          <div class="tab-active">Buscar Eventos</div>
           <input id="tableSearch" type="search" placeholder="Buscar" aria-label="Buscar tabla">
           <select id="sortSelect" aria-label="Ordenar">
             <option value="newest">Ordenar por: Más recientes</option>
@@ -158,48 +132,39 @@
       <small>Inventrack — Panel de Control UI</small>
     </footer>
   </div>
+</div>
 
-  <!-- Script de búsqueda y orden -->
-  <script>
-    (function(){
-      const table = document.getElementById('customersTable').tBodies[0];
-      const globalSearch = document.getElementById('globalSearch');
-      const tableSearch = document.getElementById('tableSearch');
-      const sortSelect = document.getElementById('sortSelect');
+<!-- === SCRIPT DE BUSQUEDA Y ORDENAMIENTO === -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const searchInput = document.getElementById("tableSearch");
+  const sortSelect = document.getElementById("sortSelect");
+  const table = document.getElementById("customersTable");
+  const tbody = table.querySelector("tbody");
 
-      function filterRowsByText(text) {
-        const t = text.trim().toLowerCase();
-        for (const row of table.rows) {
-          const rowText = row.textContent.toLowerCase();
-          row.style.display = rowText.includes(t) ? '' : 'none';
-        }
-      }
+  // --- Buscar en tiempo real ---
+  searchInput.addEventListener("input", () => {
+    const term = searchInput.value.toLowerCase();
+    const rows = tbody.querySelectorAll("tr");
 
-      function filterByTableInput() {
-        filterRowsByText(tableSearch.value);
-      }
+    rows.forEach(row => {
+      const text = row.textContent.toLowerCase();
+      row.style.display = text.includes(term) ? "" : "none";
+    });
+  });
 
-      globalSearch.addEventListener('input', e => {
-        tableSearch.value = e.target.value;
-        filterByTableInput();
-      });
+  // --- Ordenar por fecha ---
+  sortSelect.addEventListener("change", () => {
+    const rowsArray = Array.from(tbody.querySelectorAll("tr"));
 
-      tableSearch.addEventListener('input', filterByTableInput);
+    rowsArray.sort((a, b) => {
+      const fechaA = new Date(a.dataset.date);
+      const fechaB = new Date(b.dataset.date);
+      return sortSelect.value === "oldest" ? fechaA - fechaB : fechaB - fechaA;
+    });
 
-      sortSelect.addEventListener('change', function() {
-        const rows = Array.from(table.rows);
-        rows.sort((a,b) => {
-          const da = new Date(a.dataset.date || 0);
-          const db = new Date(b.dataset.date || 0);
-          return this.value === 'newest' ? db - da : da - db;
-        });
-        rows.forEach(r => table.appendChild(r));
-      });
-
-      window.addEventListener('load', () => {
-        sortSelect.dispatchEvent(new Event('change'));
-      });
-    })();
-  </script>
-</body>
-</html>
+    tbody.innerHTML = "";
+    rowsArray.forEach(row => tbody.appendChild(row));
+  });
+});
+</script>
