@@ -1,5 +1,11 @@
 #GIT Y GITHUD =====================================================>
 
+#Si en caso de error puedes ingresar 
+
+git stash
+
+#Ahora comienza normalmente ->
+
 1-#Para Obtener Cambios es:
 
 git pull
