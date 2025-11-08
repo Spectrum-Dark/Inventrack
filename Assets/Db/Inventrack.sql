@@ -1,4 +1,4 @@
--- Active: 1762210500462@@127.0.0.1@3306@inventrack
+-- Active: 1761759741520@@127.0.0.1@3306@inventrack
 -- Base de datos
 CREATE DATABASE IF NOT EXISTS inventrack;
 USE inventrack;
@@ -325,3 +325,5 @@ BEGIN
 
 END$$
 DELIMITER ;
+
+SELECT * FROM products;

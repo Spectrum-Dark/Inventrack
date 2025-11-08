@@ -1,3 +1,3 @@
 <div class="container">
-    <h2>REPORTES</h2>
+    <h2 class="repo-titulo">REPORTES</h2>
 </div>

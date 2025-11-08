@@ -20,10 +20,10 @@
   <link rel="stylesheet" href="../../../Assets/Css/listproducts.css">
   <link rel="stylesheet" href="../../../Assets/Css/sales.css">
   <link rel="stylesheet" href="../../../Assets/Css/settings.css">
+  <link rel="stylesheet" href="../../../Assets/Css/reports.css">
    <!-- ====== Librerías Externas ====== -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
     <!-- Fuentes e iconos -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
