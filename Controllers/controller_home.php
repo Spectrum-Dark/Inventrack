@@ -51,7 +51,8 @@ class Controller_Home_App
                     if ($user) {
                         /* Creamos sesion del sistema */
                         session_start();
-                        $_SESSION['username'] = $user['User Name'];
+                        $_SESSION['user_name'] = $user['User Name'];
+                        $_SESSION['user_email'] = $user['User Email'];
                         $_SESSION['user_type'] = $user['User Type'];
 
                         /* Nos redirigimos a applicaction app */

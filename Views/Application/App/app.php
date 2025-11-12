@@ -1,6 +1,9 @@
 <?php require_once('../../../Controllers/controller.php');
+require_once('../../../Controllers/controller_app.php');
 $App = new Controller();
-$App::Session_App(); ?>
+$Index = new Controller_App_Index();
+$App::Session_App();
+$Index->App_Inventrack();?>
 <!DOCTYPE html>
 <html lang="es">
 

@@ -1,15 +1,4 @@
 <div class="container">
-
-  <?php
-  // Datos simulados (en producción vienen de la base de datos)
-  $usuario = [
-    'nombre' => 'Juan Pérez',
-    'correo' => 'juan.perez@example.com',
-    'idioma' => 'Español',
-    'copias' => '1 por semana'
-  ];
-  ?>
-
   <div class="config-layout">
     <div class="config-panel">
 
@@ -30,7 +19,7 @@
               <span>Idioma</span>
             </div>
             <select class="config-input">
-              <option selected><?= $usuario['idioma']; ?></option>
+              <option selected>Español</option>
               <option>Inglés</option>
               <option>Portugués</option>
               <option>Francés</option>
@@ -53,8 +42,7 @@
               <span>Frecuencia de copias</span>
             </div>
             <select class="config-input">
-              <option selected><?= $usuario['copias']; ?></option>
-              <option>1 por día</option>
+              <option selected>1 por día</option>
               <option>1 por semana</option>
               <option>1 por mes</option>
             </select>
@@ -100,7 +88,7 @@
               <i class="fa-solid fa-user"></i>
               <span>Nombre</span>
             </div>
-            <input type="text" value="<?= $usuario['nombre']; ?>" class="config-input">
+            <input type="text" value="<?=$_SESSION['user_name'] ?>" class="config-input">
           </div>
 
           <div class="config-item">
@@ -108,7 +96,7 @@
               <i class="fa-solid fa-envelope"></i>
               <span>Correo</span>
             </div>
-            <input type="email" value="<?= $usuario['correo']; ?>" class="config-input">
+            <input type="email" value="<?= $_SESSION['user_email'] ?>" class="config-input">
           </div>
 
           <div class="config-item">
