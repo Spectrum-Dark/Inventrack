@@ -13,6 +13,7 @@
     opacity: 0;
     transform: translateY(15px);
     animation: fadeIn 0.6s ease forwards;
+    overflow-x: auto; /* ← Permite scroll horizontal si lo necesita */
 }
 
 .titulo-tabla {
@@ -68,15 +69,30 @@
     border-radius: 10px;
 }
 
+/* Encabezado */
 .encabezado-tabla {
     background-color: #263238;
     color: white;
 }
 
-.tabla-productos th, .tabla-productos td {
+/* Celdas */
+.tabla-productos th, 
+.tabla-productos td {
     padding: 12px 10px;
     text-align: left;
     border-bottom: 1px solid #ddd;
+    vertical-align: middle;
+    word-wrap: break-word; 
+    white-space: normal;
+}
+
+/* Limitar columnas largas */
+.tabla-productos td:nth-child(2) { /* Nombre */
+    max-width: 150px;
+}
+
+.tabla-productos td:nth-child(5) { /* Descripción */
+    max-width: 250px;
 }
 
 .cuerpo-tabla tr:nth-child(even) {
@@ -87,9 +103,13 @@
     background-color: #e0e0e0;
 }
 
+/* Acciones */
 .acciones {
     display: flex;
+    justify-content: center;
     gap: 8px;
+    min-width: 140px; /* ← evita deformación */
+    flex-wrap: wrap; /* ← si no cabe horizontal, hace salto */
 }
 
 /* 🧩 Botones */
@@ -127,4 +147,20 @@
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(15px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+/* 📱 RESPONSIVE (celulares) */
+@media (max-width: 768px) {
+    .busqueda-filtro {
+        flex-direction: column;
+    }
+
+    .campo-busqueda,
+    .campo-filtro {
+        width: 100%;
+    }
+
+    .acciones {
+        min-width: 120px;
+    }
 }

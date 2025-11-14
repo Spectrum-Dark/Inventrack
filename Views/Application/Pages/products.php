@@ -1,31 +1,30 @@
+<?php $X_X = new Controller_App_Index();
+$X_X->Add_Products($X_X->DataViewAll()); ?>
 <div class="container">
     <div class="pro-form-card">
         <h2 class="pro-title">Agregar Nuevo Producto</h2>
-        <form method="GET" id="productForm" class="pro-form">
+        <form method="POST" id="productForm" class="pro-form">
             <input type="text" name="view" value="products" hidden>
-            <div class="pro-form-group">
-                <label for="codigo" class="pro-label">Código del Producto</label>
-                <input type="text" id="codigo" name="codigo" placeholder="Ingrese el código" class="pro-input">
-            </div>
+            <input type="text" name="action" value="Insertar_" hidden>
             <div class="pro-form-group">
                 <label for="nombre" class="pro-label">Nombre del Producto</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Ingrese el nombre" class="pro-input">
+                <input type="text" id="nombre" name="Name_Product" placeholder="Ingrese el nombre" class="pro-input">
             </div>
             <div class="pro-form-group">
                 <label for="precio" class="pro-label">Precio</label>
-                <input type="number" id="precio" name="precio" placeholder="Ingrese el precio" class="pro-input">
+                <input type="number" id="precio" name="Price_Product" placeholder="Ingrese el precio" class="pro-input">
             </div>
             <div class="pro-form-group">
                 <label for="cantidad" class="pro-label">Cantidad</label>
-                <input type="number" id="cantidad" name="cantidad" placeholder="Ingrese la cantidad" class="pro-input">
+                <input type="number" id="cantidad" name="Stock_Product" placeholder="Ingrese la cantidad" class="pro-input">
             </div>
             <div class="pro-form-group pro-full-width">
                 <label for="descripcion" class="pro-label">Descripción</label>
-                <textarea id="descripcion" name="descripcion" placeholder="Ingrese la descripción" class="pro-textarea" rows="3"></textarea>
+                <textarea id="descripcion" name="Description_Product" placeholder="Ingrese la descripción" class="pro-textarea" rows="3"></textarea>
             </div>
             <div class="pro-form-group">
                 <label for="categoria" class="pro-label">Categoría</label>
-                <select id="categoria" name="categoria" class="pro-select" required>
+                <select id="categoria" name="Category_Product" class="pro-select" required>
                     <option value="" disabled selected>Seleccione una categoría</option>
 
                     <!-- Electrónica -->
@@ -126,11 +125,11 @@
             </div>
             <div class="pro-form-group">
                 <label for="proveedor" class="pro-label">Proveedor</label>
-                <input type="text" id="proveedor" name="proveedor" placeholder="Ingrese el proveedor" class="pro-input">
+                <input type="text" id="proveedor" name="Supplier_Product" placeholder="Ingrese el proveedor" class="pro-input">
             </div>
             <div class="pro-form-group">
                 <label for="vencimiento" class="pro-label">Fecha de Vencimiento (opcional)</label>
-                <input type="date" id="vencimiento" name="vencimiento" class="pro-input">
+                <input type="date" id="vencimiento" name="Expiration_Date" class="pro-input">
             </div>
             <div class="pro-form-actions">
                 <button type="submit" id="btnAdd" class="pro-btn pro-btn-success">

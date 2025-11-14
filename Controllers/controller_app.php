@@ -46,44 +46,11 @@ class Controller_App_Index
         /* Capta todos los datos en array dependiendo la vista */
         $Data = [];
 
-        if (isset($_GET['action']) && !empty($_GET['action']) && $_GET['action'] === 'Insertar') {
-            $Data = $_GET;
+        if (isset($_POST['action']) && !empty($_POST['action']) && $_POST['action'] === 'Insertar_') {
+            $Data = $_POST;
         }
         return $Data;
     }
 
-    /* Datos de entrada */
 
-    public function App_Inventrack()
-    {
-        /* Validamos que vista esta haciendo ejecutada */
-
-        if (isset($_GET['view']) && !empty($_GET['view'])) {
-            $view = $_GET['view'];
-            switch ($view) {
-                case 'dashboard':
-                    /* Logica */
-                    break;
-                case 'products':
-                    /* Logica agregamos productos */
-                    $this->Add_Products($this->DataViewAll());
-                    break;
-                case 'listproducts':
-                    /* Logica */
-                    break;
-                case 'sales':
-                    /* Logica */
-                    break;
-                case 'report':
-                    /* Logica */
-                    break;
-                case 'settings':
-                    /* Logica */
-                    break;
-                default:
-                    /* Logica inicial */
-                    break;
-            }
-        }
-    }
 }

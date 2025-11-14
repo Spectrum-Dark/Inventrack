@@ -2,9 +2,6 @@
   <div class="page-wrap">
     <!-- Encabezado -->
     <header class="topbar">
-      <div class="greeting">
-        <h1>Dashboard</h1>
-      </div>
     </header>
 
     <!-- Tarjetas de estadísticas -->

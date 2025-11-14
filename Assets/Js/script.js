@@ -8,20 +8,6 @@ function mostrarLogin() {
   document.getElementById("loginScreen").classList.add("active");
 }
 
-// Google Login
-window.onload = function () {
-  google.accounts.id.initialize({
-    client_id: "TU_CLIENT_ID_AQUI",
-    callback: handleCredentialResponse,
-  });
-
-  const btn = document.getElementById("btnGoogle");
-  btn.addEventListener("click", function () {
-    google.accounts.id.prompt();
-  });
-};
-
-function handleCredentialResponse(response) {
-  console.log("Token de Google:", response.credential);
-  alert("Inicio de sesión con Google exitoso. Token recibido en consola.");
+if (window.history.replaceState) {
+  window.history.replaceState(null, null, window.location.href);
 }

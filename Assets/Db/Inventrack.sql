@@ -214,7 +214,7 @@ END$$
 DELIMITER ;
 
 -- =============================================================================
--- Uopdate_Product
+-- Update_Product
 
 DELIMITER $$
 CREATE PROCEDURE SP_UpdateProduct(

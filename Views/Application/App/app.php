@@ -1,9 +1,7 @@
 <?php require_once('../../../Controllers/controller.php');
 require_once('../../../Controllers/controller_app.php');
 $App = new Controller();
-$Index = new Controller_App_Index();
-$App::Session_App();
-$Index->App_Inventrack();?>
+$App::Session_App();?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -59,11 +57,5 @@ $Index->App_Inventrack();?>
     $App::Paginas();
     ?>
   </div>
-  <script>
-    if (window.history.replaceState) {
-      window.history.replaceState(null, null, window.location.href);
-    }
-  </script>
 </body>
-
 </html>
