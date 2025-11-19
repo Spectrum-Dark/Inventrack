@@ -11,9 +11,9 @@ class Controller_App_Index
         $this->methods = new App_View_Functions();
     }
 
-    public function Dashboard()
+    public function Dashboard($Get_User)
     {
-        $this->methods->dashboard();
+        $this->methods->dashboard($Get_User);
     }
 
     public function Add_Products(array $Data)

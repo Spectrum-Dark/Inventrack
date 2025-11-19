@@ -1,6 +1,7 @@
 -- Active: 1761759741520@@127.0.0.1@3306@inventrack
 -- Base de datos
 CREATE DATABASE IF NOT EXISTS inventrack;
+
 USE inventrack;
 
 -- Tabla de usuarios
@@ -16,7 +17,9 @@ CREATE TABLE IF NOT EXISTS users (
 -- =============================================================================
 -- Insert_User
 DROP PROCEDURE IF EXISTS Insert_User;
+
 DELIMITER $$
+
 CREATE PROCEDURE Insert_User(
     IN p_username VARCHAR(50),
     IN p_password_hash VARCHAR(255),
@@ -39,12 +42,15 @@ BEGIN
         SELECT 'El usuario ya existe' AS mensaje;
     END IF;
 END$$
-DELIMITER ;
+
+DELIMITER;
 
 -- =============================================================================
 -- Get_User_By_Username_Or_Email
 DROP PROCEDURE IF EXISTS Get_User_By_Username_Or_Email;
+
 DELIMITER $$
+
 CREATE PROCEDURE Get_User_By_Username_Or_Email(
     IN p_identifier VARCHAR(100),
     IN p_password VARCHAR(255)
@@ -60,23 +66,29 @@ BEGIN
       AND password_hash = p_password
     LIMIT 1;
 END$$
-DELIMITER ;
+
+DELIMITER;
 
 -- =============================================================================
 -- Get_All_Users
 DROP PROCEDURE IF EXISTS Get_All_Users;
+
 DELIMITER $$
+
 CREATE PROCEDURE Get_All_Users()
 BEGIN
     SELECT id AS 'User ID', username AS 'User Name', email AS 'User Email', user_type AS 'User Type' 
     FROM users;
 END$$
-DELIMITER ;
+
+DELIMITER;
 
 -- =============================================================================
 -- Update_User
 DROP PROCEDURE IF EXISTS Update_User;
+
 DELIMITER $$
+
 CREATE PROCEDURE Update_User(
     IN p_id INT,
     IN p_username VARCHAR(50),
@@ -92,19 +104,23 @@ BEGIN
         user_type = p_user_type
     WHERE id = p_id;
 END$$
-DELIMITER ;
+
+DELIMITER;
 
 -- =============================================================================
 -- Delete_User
 DROP PROCEDURE IF EXISTS Delete_User;
+
 DELIMITER $$
+
 CREATE PROCEDURE Delete_User(
     IN p_id INT
 )
 BEGIN
     DELETE FROM users WHERE id = p_id;
 END$$
-DELIMITER ;
+
+DELIMITER;
 
 -- =============================================================================
 /* Creamos la tabla productos */
@@ -138,6 +154,7 @@ CREATE TABLE IF NOT EXISTS products (
 -- Insert_Product
 
 DELIMITER $$
+
 CREATE FUNCTION FN_GenerateProductId() 
 RETURNS VARCHAR(50) 
 DETERMINISTIC
@@ -167,9 +184,11 @@ BEGIN
 
     RETURN V_PRODUCT_ID;
 END$$
-DELIMITER ;
+
+DELIMITER;
 
 DELIMITER $$
+
 CREATE PROCEDURE SP_CreateProduct(
     IN P_name_prod VARCHAR(100),
     IN P_description_prod TEXT,
@@ -211,12 +230,14 @@ BEGIN
         V_id_prod AS new_id_prod;
 
 END$$
-DELIMITER ;
+
+DELIMITER;
 
 -- =============================================================================
 -- Update_Product
 
 DELIMITER $$
+
 CREATE PROCEDURE SP_UpdateProduct(
     IN P_id INT,
     IN P_name_prod VARCHAR(100),
@@ -242,12 +263,14 @@ BEGIN
         
     SELECT ROW_COUNT() AS rows_affected;
 END$$
-DELIMITER ;
+
+DELIMITER;
 
 -- =============================================================================
 -- Delete_Product
 
 DELIMITER $$
+
 CREATE PROCEDURE SP_DeleteProduct(
     IN P_id INT
 )
@@ -257,12 +280,14 @@ BEGIN
     
     SELECT ROW_COUNT() AS rows_affected;
 END$$
-DELIMITER ;
+
+DELIMITER;
 
 -- =============================================================================
 -- Get_All_Products
 
 DELIMITER $$
+
 CREATE PROCEDURE SP_GetAllProducts()
 BEGIN
     SELECT 
@@ -281,12 +306,14 @@ BEGIN
     ORDER BY 
         id DESC;
 END$$
-DELIMITER ;
+
+DELIMITER;
 
 -- =============================================================================
 -- Indexes adicionales para optimización
 
 DELIMITER $$
+
 CREATE PROCEDURE SP_GetProductsByIndex(
     IN P_search_term VARCHAR(100), -- Término de búsqueda parcial
     IN P_order_by VARCHAR(50)      -- Columna para ordenar ('id', 'name_prod', 'category', 'supplier')
@@ -324,6 +351,57 @@ BEGIN
     DEALLOCATE PREPARE stmt;
 
 END$$
-DELIMITER ;
+
+DELIMITER;
 
 SELECT * FROM products;
+
+-- =============================================================================
+-- Total en stock
+DELIMITER $$
+
+CREATE PROCEDURE sp_total_stock()
+BEGIN
+    SELECT SUM(stock_prod) AS total_stock
+    FROM products;
+END $$
+
+DELIMITER ;
+
+-- =============================================================================
+--Creamos la tabla de Registros y procedimientos de dashboards
+
+CREATE TABLE IF NOT EXISTS events_app (
+    id_event INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    code_event VARCHAR(10),
+    date_event TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    user_app VARCHAR(100),
+    user_action VARCHAR(100),
+    details VARCHAR(255)
+);
+
+DELIMITER $$
+
+CREATE PROCEDURE sp_insert_event (
+    IN p_user_app VARCHAR(100),
+    IN p_user_action VARCHAR(100),
+    IN p_details VARCHAR(255)
+)
+BEGIN
+    DECLARE next_id INT;
+    DECLARE new_code VARCHAR(10);
+
+    -- Obtener el siguiente ID (AUTO_INCREMENT)
+    SELECT IFNULL(MAX(id_event), 0) + 1 INTO next_id
+    FROM events_app;
+
+    -- Generar código: EVT-XXX
+    SET new_code = CONCAT('EVT-', LPAD(next_id, 3, '0'));
+
+    -- Insertar el registro
+    INSERT INTO events_app (code_event, user_app, user_action, details)
+    VALUES (new_code, p_user_app, p_user_action, p_details);
+
+END $$
+
+DELIMITER ;

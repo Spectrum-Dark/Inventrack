@@ -12,7 +12,36 @@ class App_View_Functions
 
     /* Funciones de la apliacion en general dependiendo de la vista */
 
-    public function dashboard() {}
+    public function dashboard($Get_User)
+    {
+        try {
+            if ($Get_User == 'stock') {
+                /* Evento de dashboard total stock ============================= */
+                $Sql = 'CALL sp_total_stock()';
+                $result = $this->db->query($Sql);
+                if ($result) {
+                    $row = $result->fetch_assoc();
+                    // Validar si existe el campo
+                    if (isset($row['total_stock'])) {
+                        echo $row['total_stock'];
+                    } else {
+                        echo "0"; // o mensaje de error
+                    }
+                    $result->free(); // Importante en procedimientos
+                } else {
+                    echo "Error en consulta SQL";
+                }
+                /* Evento de dashboard total stock ============================= */
+            } elseif ($Get_User == 'sales') {
+                /* Code */
+            } elseif ($Get_User == 'reports') {
+                /* Code */
+            }
+        } catch (Exception $e) {
+            error_log($e->getMessage());
+            return false;
+        }
+    }
 
     public function add_products(array $Data): bool
     {
@@ -38,6 +67,7 @@ class App_View_Functions
             return false;
         }
     }
+
     public function list_products()
     {
         $Sql = 'CALL SP_GetAllProducts();';
@@ -95,8 +125,6 @@ class App_View_Functions
             echo "<tr><td colspan='9'>Error al cargar los productos</td></tr>";
         }
     }
-
-
 
     public function sales_app() {}
 

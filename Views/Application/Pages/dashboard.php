@@ -1,4 +1,5 @@
 <div class="container">
+  <?php $View = new Controller_App_Index(); ?>
   <div class="page-wrap">
     <!-- Encabezado -->
     <header class="topbar">
@@ -18,7 +19,7 @@
         <div class="icon"><i class="fa-solid fa-boxes-stacked"></i></div>
         <div class="info">
           <div class="title">Total en Stock</div>
-          <div class="value value-stock">2,154</div>
+          <div class="value value-stock"><?php $View->Dashboard('stock'); ?></div>
         </div>
       </div>
 
@@ -133,35 +134,35 @@
 
 <!-- === SCRIPT DE BUSQUEDA Y ORDENAMIENTO === -->
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const searchInput = document.getElementById("tableSearch");
-  const sortSelect = document.getElementById("sortSelect");
-  const table = document.getElementById("customersTable");
-  const tbody = table.querySelector("tbody");
+  document.addEventListener("DOMContentLoaded", () => {
+    const searchInput = document.getElementById("tableSearch");
+    const sortSelect = document.getElementById("sortSelect");
+    const table = document.getElementById("customersTable");
+    const tbody = table.querySelector("tbody");
 
-  // --- Buscar en tiempo real ---
-  searchInput.addEventListener("input", () => {
-    const term = searchInput.value.toLowerCase();
-    const rows = tbody.querySelectorAll("tr");
+    // --- Buscar en tiempo real ---
+    searchInput.addEventListener("input", () => {
+      const term = searchInput.value.toLowerCase();
+      const rows = tbody.querySelectorAll("tr");
 
-    rows.forEach(row => {
-      const text = row.textContent.toLowerCase();
-      row.style.display = text.includes(term) ? "" : "none";
-    });
-  });
-
-  // --- Ordenar por fecha ---
-  sortSelect.addEventListener("change", () => {
-    const rowsArray = Array.from(tbody.querySelectorAll("tr"));
-
-    rowsArray.sort((a, b) => {
-      const fechaA = new Date(a.dataset.date);
-      const fechaB = new Date(b.dataset.date);
-      return sortSelect.value === "oldest" ? fechaA - fechaB : fechaB - fechaA;
+      rows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        row.style.display = text.includes(term) ? "" : "none";
+      });
     });
 
-    tbody.innerHTML = "";
-    rowsArray.forEach(row => tbody.appendChild(row));
+    // --- Ordenar por fecha ---
+    sortSelect.addEventListener("change", () => {
+      const rowsArray = Array.from(tbody.querySelectorAll("tr"));
+
+      rowsArray.sort((a, b) => {
+        const fechaA = new Date(a.dataset.date);
+        const fechaB = new Date(b.dataset.date);
+        return sortSelect.value === "oldest" ? fechaA - fechaB : fechaB - fechaA;
+      });
+
+      tbody.innerHTML = "";
+      rowsArray.forEach(row => tbody.appendChild(row));
+    });
   });
-});
 </script>
